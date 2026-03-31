@@ -1,3 +1,4 @@
+import { ShoppingCart } from "lucide-react";
 import React from "react";
 
 const Navbar = () => {
@@ -67,7 +68,8 @@ const Navbar = () => {
 
         <div className="navbar-end">
             {/* <ShoppingCart /> */}
-            <button className="mr-4">Login</button>
+            <ShoppingCart size={24}></ShoppingCart>
+            <button className="mx-4">Login</button>
           <a className="btn btn-primary rounded-full">Get Started</a>
         </div>
       </div>
