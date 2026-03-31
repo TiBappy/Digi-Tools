@@ -1,10 +1,22 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
-const ToolCard = ({ tool }) => {
+const ToolCard = ({ tool, carts, setCarts }) => {
   const [isSubscribed, setIsSubscribed] = useState(false);
   const handleSubscription = () => {
+    
      setIsSubscribed(true)
-  }
+     const isFound = carts.find(item => item.id === tool.id)
+     if(isFound) {
+      toast.error("Item already Selected")
+      return;
+     }
+     setCarts([...carts, tool])
+     toast.success("Item Added to Cart")
+}
+
+  
+
   return (
     <div>
       <div className="border border-gray-200 p-4 space-y-3 rounded-lg">

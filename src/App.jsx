@@ -5,24 +5,19 @@ import Stats from "./Components/Stats";
 import Tools from "./Components/Tools";
 import Cart from "./Components/Cart";
 import { useState } from "react";
-import { Suspense } from "react";
-
-const getTools = async () => {
-  const res = await fetch("/tools.json");
-  return res.json();
-};
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
-  const toolsPromise = getTools();
   const [activeTab, setActiveTab] = useState("tool");
-  console.log(activeTab);
+  const [carts, setCarts] = useState([]);
 
   return (
     <>
-      <Navbar></Navbar>
-      <Banner></Banner>
-      <Stats></Stats>
-      {/* name of each tab group should be unique */}
+      <Navbar />
+      <Banner />
+      <Stats />
+
       <div className="tabs tabs-box justify-center bg-transparent">
         <input
           type="radio"
@@ -41,19 +36,11 @@ function App() {
         />
       </div>
 
-      {activeTab === "tool" && (
-        <Suspense
-          fallback={<span className="loading loading-ring loading-xl"></span>}
-        >
-          <Tools toolsPromise={toolsPromise}></Tools>
-        </Suspense>
-      )}
+      <ToastContainer />
 
-      {
-        activeTab === "Cart" && <Cart></Cart>
-      }
+      {activeTab === "tool" && <Tools carts={carts} setCarts={setCarts} />}
 
-      
+      {activeTab === "Cart" && <Cart carts={carts} setCarts={setCarts} />}
     </>
   );
 }
