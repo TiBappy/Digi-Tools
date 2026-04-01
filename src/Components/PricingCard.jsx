@@ -14,13 +14,13 @@ const PricingCard = () => {
         </div>
 
         {/* FIXED GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* CARD 1 */}
-          <div className="card w-full max-w-sm bg-green-50 shadow-sm">
+          <div className="card w-full bg-green-50 shadow-sm">
             <div className="card-body">
               <span className="badge badge-xs badge-warning">Most Popular</span>
               <div className="flex justify-between">
-                <h2 className="text-3xl font-bold">Premium</h2>
+                <h2 className="text-3xl font-bold">Starter</h2>
                 <span className="text-xl">$29/mo</span>
               </div>
 
@@ -107,7 +107,7 @@ const PricingCard = () => {
             <div className="card-body">
               <span className="badge badge-xs badge-warning">Most Popular</span>
               <div className="flex justify-between">
-                <h2 className="text-3xl font-bold">Premium</h2>
+                <h2 className="text-3xl font-bold">Pro</h2>
                 <span className="text-xl">$29/mo</span>
               </div>
               <ul className="mt-6 flex flex-col gap-2 text-xs">
@@ -229,7 +229,7 @@ const PricingCard = () => {
             <div className="card-body">
               <span className="badge badge-xs badge-warning">Most Popular</span>
               <div className="flex justify-between">
-                <h2 className="text-3xl font-bold">Premium</h2>
+                <h2 className="text-3xl font-bold">Enterprise</h2>
                 <span className="text-xl">$29/mo</span>
               </div>
               <ul className="mt-6 flex flex-col gap-2 text-xs">
