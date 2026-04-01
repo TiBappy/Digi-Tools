@@ -8,6 +8,8 @@ import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Steps from "./Components/Steps";
+import PricingCard from "./Components/PricingCard";
+import Footer from "./Components/Footer";
 
 function App() {
   const [activeTab, setActiveTab] = useState("tool");
@@ -44,6 +46,8 @@ function App() {
       {activeTab === "Cart" && <Cart carts={carts} setCarts={setCarts} />}
 
       <Steps></Steps>
+      <PricingCard></PricingCard>
+      <Footer></Footer>
     </>
   );
 }
