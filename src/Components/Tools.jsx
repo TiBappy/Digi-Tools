@@ -19,13 +19,14 @@ const Tools = ({ carts, setCarts }) => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto items-stretch">
         {tools.map((tool) => (
-          <div key={tool.id}>
+          <div key={tool.id} className="h-full flex">
             <ToolCard
               tool={tool}
               carts={carts}
               setCarts={setCarts}
+              className="flex-1"
             />
           </div>
         ))}

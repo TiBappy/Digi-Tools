@@ -1,11 +1,10 @@
 import { ShoppingCart } from "lucide-react";
 import React from "react";
 
-const Navbar = () => {
+const Navbar = ({ carts }) => {
   return (
     <div className="shadow-sm">
-      <div className="max-w-6xl mx-auto navbar bg-base-100 ">
-
+      <div className="max-w-6xl mx-auto px-4 navbar bg-base-100">
         {/* ------------------Navbar Start-------------------------- */}
         <div className="navbar-start">
           <div className="dropdown">
@@ -17,60 +16,80 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 stroke="currentColor"
               >
-                {" "}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
                   d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                />
               </svg>
             </div>
+
             <ul
-              tabIndex="-1"
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              tabIndex={0}
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Item 1</a>
+                <a>Products</a>
               </li>
               <li>
-                <a>Parent</a>
-                <ul className="p-2">
-                  <li>
-                    <a>Submenu 1</a>
-                  </li>
-                  <li>
-                    <a>Submenu 2</a>
-                  </li>
-                </ul>
+                <a>Features</a>
               </li>
               <li>
-                <a>Item 3</a>
+                <a>Pricing</a>
+              </li>
+              <li>
+                <a>Testimonials</a>
+              </li>
+              <li>
+                <a>FAQ</a>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-3xl text-purple-600 font-bold">DigiTools</a>
+
+          <a className="btn btn-ghost text-lg sm:text-2xl md:text-3xl text-purple-600 font-bold">
+            DigiTools
+          </a>
         </div>
 
         {/* ----------------Navbar Center ---------------*/}
-
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 gap-6">
-            <li>Products</li>
-            <li>Features</li>
-            <li>Pricing</li>
-            <li>Testimonials</li>
-            <li>FAQ</li>
+          <ul className="menu menu-horizontal px-1 gap-6 font-medium">
+            <li>
+              <a>Products</a>
+            </li>
+            <li>
+              <a>Features</a>
+            </li>
+            <li>
+              <a>Pricing</a>
+            </li>
+            <li>
+              <a>Testimonials</a>
+            </li>
+            <li>
+              <a>FAQ</a>
+            </li>
           </ul>
         </div>
 
-        {/* -------------------------Navbar End---------------------------- */}
+        {/* ----------------Navbar End---------------------------- */}
+        <div className="navbar-end flex items-center gap-2 sm:gap-4">
+          <div className="relative cursor-pointer">
+            <ShoppingCart size={22} />
 
-        <div className="navbar-end">
-            {/* <ShoppingCart /> */}
-            <ShoppingCart size={24}></ShoppingCart>
-            <button className="mx-4">Login</button>
-          <a className="btn btn-primary rounded-full">Get Started</a>
+            {carts.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                {carts.length}
+              </span>
+            )}
+          </div>
+
+          <button className="hidden sm:block">Login</button>
+
+          <a className="btn btn-primary rounded-full px-4 sm:px-6">
+            Get Started
+          </a>
         </div>
       </div>
     </div>

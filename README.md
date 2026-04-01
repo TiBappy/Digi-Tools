@@ -37,27 +37,7 @@ A modern React-based web application where users can explore digital tools, add 
 ## 📂 Project Structure
 
 ```
-src/
-│
-├── Components/
-│   ├── Navbar.jsx
-│   ├── Banner.jsx
-│   ├── Stats.jsx
-│   ├── Tools.jsx
-│   ├── ToolCard.jsx
-│   ├── Cart.jsx
-│   ├── Steps.jsx
-│   ├── PricingCard.jsx
-│   └── Footer.jsx
-│
-├── assets/
-│   ├── banner.png
-│   └── Play.png
-│
-├── App.jsx
-├── main.jsx
-└── index.css
-```
+
 
 ---
 
@@ -110,8 +90,8 @@ npm run dev
 ## 🙌 Author
 
 👤 **MridhaBappy**
-📧 *Add your email here*
-🌐 *Add your portfolio link*
+📧 *tibappy95@gmail.com*
+
 
 ---
 

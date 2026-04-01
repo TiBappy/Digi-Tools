@@ -7,7 +7,7 @@ const Footer = () => {
         <footer className="footer sm:footer-horizontal bg-[#101727] text-white p-10 mt-18">
           <nav>
             <h6 className="footer-title">Services</h6>
-            <a className="link link-hover">Branding</a>
+            <a className="link link-hover  text-2xl font-bold">Digi Tools</a>
             <a className="link link-hover">Design</a>
             <a className="link link-hover">Marketing</a>
             <a className="link link-hover">Advertisement</a>

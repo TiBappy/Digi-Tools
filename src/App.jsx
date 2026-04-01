@@ -17,26 +17,35 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar carts={carts} />
+
       <Banner />
       <Stats />
 
-      <div className="tabs tabs-box justify-center bg-transparent">
-        <input
-          type="radio"
-          name="my_tabs_1"
-          className="tab"
-          aria-label="Products"
-          defaultChecked
+      <div className="flex justify-center gap-4 mt-10 cursor-pointer">
+        <button
           onClick={() => setActiveTab("tool")}
-        />
-        <input
-          type="radio"
-          name="my_tabs_1"
-          className="tab"
-          aria-label="Cart"
+          className={`px-6 py-2 cursor-pointer rounded-full font-medium transition-all duration-300
+            ${
+              activeTab === "tool"
+                ? "bg-purple-600 text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+        >
+          Products
+        </button>
+
+        <button
           onClick={() => setActiveTab("Cart")}
-        />
+          className={`px-6 py-2 cursor-pointer rounded-full font-medium transition-all duration-300
+            ${
+              activeTab === "Cart"
+                ? "bg-purple-600 text-white"
+                : "bg-gray-200 text-gray-700"
+            }`}
+        >
+          Cart
+        </button>
       </div>
 
       <ToastContainer />
@@ -45,9 +54,9 @@ function App() {
 
       {activeTab === "Cart" && <Cart carts={carts} setCarts={setCarts} />}
 
-      <Steps></Steps>
-      <PricingCard></PricingCard>
-      <Footer></Footer>
+      <Steps />
+      <PricingCard />
+      <Footer />
     </>
   );
 }

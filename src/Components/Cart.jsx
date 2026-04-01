@@ -5,64 +5,73 @@ const Cart = ({ carts, setCarts }) => {
   const totalPrice = carts
     .reduce((sum, item) => sum + Number(item.price), 0)
     .toFixed(2);
-  console.log(totalPrice);
+
   const handlePayment = () => {
     setCarts([]);
-    toast.success("payment Succesfull")
+    toast.success("Payment Successful");
   };
+
   const handleDelete = (item) => {
     const filteredArray = carts.filter((c) => c.id !== item.id);
     setCarts(filteredArray);
-    toast("Deleted Succesfully")
+    toast("Deleted Successfully");
   };
+
   return (
-    <div>
-      <div>
-        <div className="text-center p-5 space-y-4">
-          <h1 className="text-4xl font-bold">Premium Digital Tools</h1>
-          <p className="max-w-2xl mx-auto">
-            Choose from our curated collection of premium digital products
-            designedto boost your productivity and creativity.
-          </p>
-        </div>
+    <div className="mt-10 px-4">
+      <div className="text-center space-y-4 mb-10">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
+          Your Cart
+        </h1>
+        <p className="max-w-xl mx-auto text-sm text-gray-600">
+          Review your selected tools and proceed to checkout.
+        </p>
       </div>
+
       {carts.length === 0 ? (
-        <div className="max-w-5xl mx-auto mt-5">
-          <h1 className="text-3xl text-center font-bold">The Cart Is Empty</h1>
+        <div className="max-w-4xl mx-auto mt-10 text-center">
+          <h1 className="text-2xl sm:text-3xl font-bold">Your Cart is Empty</h1>
         </div>
       ) : (
         <>
-          <div className="mt-15">
+          <div className="space-y-4 max-w-4xl mx-auto">
             {carts.map((item) => (
-              <div className="max-w-6xl mx-auto border-2 flex justify-between">
-                <div>
+              <div
+                key={item.id}
+                className="flex flex-col sm:flex-row items-center justify-between gap-4 border border-gray-200 p-4 rounded-lg shadow-sm"
+              >
+                <div className="flex items-center gap-4 w-full">
+                  <img
+                    src={item.image || ""}
+                    alt={item.name}
+                    className="w-16 h-16 object-cover rounded-md"
+                  />
+
                   <div>
-                    <img src="" alt="" />
-                  </div>
-                  <div>
-                    <h3>{item.name}</h3>
-                    <p>$ {item.price}</p>
+                    <h3 className="font-semibold text-base">{item.name}</h3>
+                    <p className="text-sm text-gray-600">${item.price}</p>
                   </div>
                 </div>
-                <div>
-                  <button
-                    onClick={() => handleDelete(item)}
-                    className="btn btn-error rounded-full"
-                  >
-                    X
-                  </button>
-                </div>
+
+                <button
+                  onClick={() => handleDelete(item)}
+                  className="btn btn-error btn-sm rounded-full"
+                >
+                  Remove
+                </button>
               </div>
             ))}
           </div>
-          <div className="max-w-6xl mx-auto flex justify-between items-center p-5">
-            <div>Total</div>
-            <div className="text-2xl font-bold">${totalPrice}</div>
+
+          <div className="max-w-4xl mx-auto flex justify-between items-center mt-8 p-4 border-t">
+            <span className="text-lg font-medium">Total</span>
+            <span className="text-xl sm:text-2xl font-bold">${totalPrice}</span>
           </div>
-          <div className="max-w-6xl mx-auto">
+
+          <div className="max-w-4xl mx-auto mt-4">
             <button
               onClick={handlePayment}
-              className="btn btn-primary w-full rounded-full p-3 text-lg"
+              className="btn btn-primary w-full rounded-full py-3 text-base sm:text-lg"
             >
               Proceed to Checkout
             </button>
